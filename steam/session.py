@@ -33,7 +33,7 @@ class Session:
         for tag in request: tags[tag["tagid"]] = tag["name"]
         return tags
 
-    # supports a list of user ids or a single user id (Note that if len(user_id) > 200 you might have to wait a while)
+    # supports a list of user ids or a single user id (Note that if len(user_id) > 200 you might have to wait a bit)
     def resolve_user(self, user_id):
         if type(user_id) == list:
             if len(user_id) > 200:
