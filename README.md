@@ -1,0 +1,1 @@
+A steam api wrapper for python.
