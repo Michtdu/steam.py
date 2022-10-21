@@ -4,8 +4,8 @@ import rsa
 from time import sleep
 from base64 import b64encode
 
-import private_enum as e
-import classes as c
+import steam.private_enum as e
+import steam.classes as c
 
 
 # noinspection PyTypeChecker

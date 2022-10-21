@@ -1,1 +1,1 @@
-from Session import Session
+from steam.Session import Session

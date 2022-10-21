@@ -1,4 +1,4 @@
-from classes import RequestInfo
+from steam.classes import RequestInfo
 
 
 class Hosts:
