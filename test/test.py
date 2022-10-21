@@ -1,5 +1,7 @@
 import steam
+from login_data import *
 
 session = steam.Session()
-print(session.get_global_stats())
 
+user = session.login(username1, password1)
+print(user)

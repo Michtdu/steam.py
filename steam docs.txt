@@ -1,0 +1,2 @@
+https://steamapi.xpaw.me/
+https://github.com/Revadike/InternalSteamWebAPI/wiki/

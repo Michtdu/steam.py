@@ -22,10 +22,3 @@ class Requests:
 
     class User:
         get_user = RequestInfo(Hosts.community, "actions/ajaxresolveusers/")
-
-
-class LoginTypes:
-    none = 1
-    email_code = 2
-    two_fa = 3
-    mobile_confirm = 4

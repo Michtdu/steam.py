@@ -24,6 +24,21 @@ class Session:
         try: return request.json()
         except requests.exceptions.JSONDecodeError: return request.text
 
+    def login(self, username, password):
+        rsa_request = self.__request(e.Requests.Login.get_rsa, {"account_name": username})["response"]
+
+        public_key = rsa.PublicKey(int(rsa_request["publickey_mod"], 16), int(rsa_request["publickey_exp"], 16))
+        encrypted_pass = b64encode(rsa.encrypt(password.encode("utf-8"), public_key))
+
+        auth_session_request_params = {"account_name": username, "encrypted_password": encrypted_pass, "encryption_timestamp": rsa_request["timestamp"]}
+        auth_session_request = self.__request(e.Requests.Login.session_request, auth_session_request_params)["response"]
+
+        if "steamid" not in auth_session_request.keys(): raise Exception("Wrong Steam Password/Username")
+
+        return c.ConfirmLogin(auth_session_request)
+
+
+
     def get_global_stats(self):
         return c.GlobalStatistics(self.__request(e.Requests.Miscellaneous.get_global_stats))
 
